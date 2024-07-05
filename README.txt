@@ -1,28 +1,31 @@
 REMIX DEFAULT WORKSPACE
 
-Remix default workspace is present when:
-i. Remix loads for the very first time 
-ii. A new workspace is created with 'Default' template
-iii. There are no files existing in the File Explorer
+This smart contract defines a basic ERC20 token named "Cryptos" with the symbol "CRPT". Here's a breakdown of what the contract does:
 
-This workspace contains 3 directories:
+1. SETTING UP THE TOKEN:
 
-1. 'contracts': Holds three contracts with increasing levels of complexity.
-2. 'scripts': Contains four typescript files to deploy a contract. It is explained below.
-3. 'tests': Contains one Solidity test file for 'Ballot' contract & one JS test file for 'Storage' contract.
+Defines the total supply of tokens (1,000,000 in this case).
+Tracks the founder's address and assigns the entire supply to the founder initially.
+Stores the token information like name, symbol, and decimals (currently set to 0, whole tokens).
 
-SCRIPTS
+2. TRACKING BALANCES:
 
-The 'scripts' folder has four typescript files which help to deploy the 'Storage' contract using 'web3.js' and 'ethers.js' libraries.
+Uses a mapping to keep track of each address's token balance.
 
-For the deployment of any other contract, just update the contract's name from 'Storage' to the desired contract and provide constructor arguments accordingly 
-in the file `deploy_with_ethers.ts` or  `deploy_with_web3.ts`
+3. TRANSFERING TOKENS:
 
-In the 'tests' folder there is a script containing Mocha-Chai unit tests for 'Storage' contract.
+Allows users to transfer tokens to another address if they have sufficient balance.
+Updates the balances of the sender and receiver accordingly.
+Emits a "Transfer" event to record the transaction on the blockchain.
 
-To run a script, right click on file name in the file explorer and click 'Run'. Remember, Solidity file must already be compiled.
-Output from script will appear in remix terminal.
+4. APPROVALS AND ALLOWANCES:
 
-Please note, require/import is supported in a limited manner for Remix supported modules.
-For now, modules supported by Remix are ethers, web3, swarmgw, chai, multihashes, remix and hardhat only for hardhat.ethers object/plugin.
-For unsupported modules, an error like this will be thrown: '<module_name> module require is not supported by Remix IDE' will be shown.
+Enables users to approve another address (spender) to transfer tokens on their behalf (a form of delegation).
+Tracks the allowed amount for each spender in a separate mapping.
+The "approve" function lets the owner define the spending limit for a spender.
+The "transferFrom" function allows the spender to transfer tokens up to the approved limit from the owner's balance.
+
+5. SECURITY:
+
+The contract includes checks to ensure sufficient balance before transfers and prevent unauthorized spending.
+Overall, this smart contract creates a basic ERC20 token that allows users to transfer and manage their holdings while enabling controlled spending through approvals.
