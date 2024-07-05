@@ -11,6 +11,31 @@
 					{
 						"indexed": true,
 						"internalType": "address",
+						"name": "tokenOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
 						"name": "from",
 						"type": "address"
 					},
@@ -29,6 +54,54 @@
 				],
 				"name": "Transfer",
 				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenOwner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "remaining",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -85,6 +158,35 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokens",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -115,11 +217,11 @@
 	},
 	"sources": {
 		"contracts/erc20_state_vars.sol": {
-			"keccak256": "0x91a64f9633f3eda086e95d5134fdede7d484027320725c840db1fb275877de29",
+			"keccak256": "0xd57c2a1203b3ff0a06727ddcd2c3339bc4ebaf844dd0638245fe67cd12fdbeca",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://cd13ea95fa1a44ae7fc9b11ffe9b3fef7a84d3e9a0916456cdde976d712c0fb8",
-				"dweb:/ipfs/QmRG9rhvavbN9wLb3KTE7oVmXe9FHLQy6mQiMXPPMiBcNj"
+				"bzz-raw://fafadeffc50bf4bc332babb26886ba268fe359993c1119bcb629ab5a42e10fe5",
+				"dweb:/ipfs/QmbhToggNhjc2CkGVtxvhLwvMJvvGB8my1AJa4tfNpX3C6"
 			]
 		}
 	},
