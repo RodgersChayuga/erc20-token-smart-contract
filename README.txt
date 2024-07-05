@@ -1,4 +1,4 @@
-REMIX DEFAULT WORKSPACE
+ERC20 TOKEN STANDARD SMART CONTRACT
 
 This smart contract defines a basic ERC20 token named "Cryptos" with the symbol "CRPT". Here's a breakdown of what the contract does:
 
